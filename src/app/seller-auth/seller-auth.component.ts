@@ -11,14 +11,24 @@ import { SellerService } from '../servers/seller.service';
 export class SellerAuthComponent implements OnInit {
 
   constructor( private seller:SellerService, private router:Router) { }
-
+  showLoginForm = true
+  showRegisterForm = false
   ngOnInit(): void {
      this.seller.reloadSeller()
   }
   SellerSignup(data:SellerSignup):void{
     this.seller.SellerSignup(data)
   }
-  reloadSeller(){
-    
+  Seller_Login(data:SellerSignup):void{
+    console.warn(data)
+  }
+  SellerLoginForm(){
+     this.showRegisterForm= false
+     this.showLoginForm = true
+  }
+  SellerRegisterForm(){
+    this.showLoginForm = false
+    this.showRegisterForm= true
+
   }
 }
