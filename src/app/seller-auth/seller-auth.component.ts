@@ -13,14 +13,12 @@ export class SellerAuthComponent implements OnInit {
   constructor( private seller:SellerService, private router:Router) { }
 
   ngOnInit(): void {
- 
+     this.seller.reloadSeller()
   }
   SellerSignup(data:SellerSignup):void{
-      this.seller.SellerSignup(data).subscribe((resulth)=>{
-        console.warn(resulth)
-        if (resulth){
-          this.router.navigate(['seller-home'])
-        }
-      });
+    this.seller.SellerSignup(data)
+  }
+  reloadSeller(){
+    
   }
 }
