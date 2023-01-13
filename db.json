@@ -11,6 +11,18 @@
       "email": "user12@gmail.com",
       "password": "123456",
       "id": 2
+    },
+    {
+      "name": "akmal naseer",
+      "email": "akmalqwe482@gmail.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "akmal naseer",
+      "email": "akmalqwe48",
+      "password": "1234",
+      "id": 4
     }
   ]
 }
