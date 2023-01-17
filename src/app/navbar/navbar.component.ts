@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
           let sellerstore = localStorage.getItem('seller')
           let sellerdata = sellerstore && JSON.parse(sellerstore)[0]
           this.SellerName = sellerdata.name
-          
+
         }else{
           this.Menutype = 'default'
         }
