@@ -1,35 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">E-Commance</a>
+        <a class="navbar-brand" routerLink="/">E-Commance</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
             aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" style="color: white;">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+        <div class="collapse navbar-collapse" id="navbarScroll" [ngSwitch]="Menutype">
+            <ul [ngSwitch]="Menutype" class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" routerLink="/">Home</a>
+                    <a class="nav-link" aria-current="page" *ngSwitchCase="'default'" routerLink="/">Home</a>
+                    <a class="nav-link" routerLink="seller-auth" *ngSwitchCase="'seller'">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/seller-auth/">Seller</a>
+                    <a class="nav-link" routerLink="/seller-auth/" *ngSwitchCase="'default'">Seller</a>
+                    <a class="nav-link" aria-current="page" routerLink="seller-add-product" *ngSwitchCase="'seller'">Add Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About us</a>
+                    <a class="nav-link" href="#" *ngSwitchCase="'default'">About Us</a>
+                    <a class="nav-link" routerLink="seller-product-list" *ngSwitchCase="'seller'">Product List</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" *ngSwitchCase="'default'">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <ul class="navbar-nav my-lg-0 navbar-nav-scroll nav-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart(0)</a>
-                </li>
+            <div [ngSwitch]="Menutype">
+                <ul *ngSwitchCase="'default'" class="navbar-nav my-lg-0 navbar-nav-scroll nav-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cart(0)</a>
+                    </li>
+                </ul>
+                <ul *ngSwitchCase="'seller'" class="navbar-nav my-lg-0 navbar-nav-scroll nav-right">
+                    <li class="nav-item">
+                        <a class="nav-link" style="cursor: pointer;" (click)="logout()">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <h2 class="nav-link mt-1" style="color: blueviolet;">{{SellerName | titlecase}}</h2>
+                    </li>
+                </ul>
+            </div>
 
-            </ul>
         </div>
     </div>
 </nav>
