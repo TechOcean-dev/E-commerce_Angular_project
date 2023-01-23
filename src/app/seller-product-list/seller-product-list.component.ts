@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../servers/product.service';
+import {faTrash, faPenSquare, faEdit} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-seller-product-list',
@@ -10,6 +11,8 @@ import { ProductService } from '../servers/product.service';
 export class SellerProductListComponent implements OnInit {
   Productlist: any
   ProductDeleteAlert = false
+  DeleteIcon = faTrash
+  UpdateIcon = faEdit
   constructor(private product: ProductService) { }
 
   ngOnInit(): void {
@@ -17,7 +20,6 @@ export class SellerProductListComponent implements OnInit {
   }
 
   ProductDelete(id: number) {
-    console.warn(id)
     this.product.product_delete(id).subscribe((result) => {
       console.warn("Before = ", result)
       if (result) {
@@ -29,6 +31,21 @@ export class SellerProductListComponent implements OnInit {
         , 7000);
     })
   }
+
+  ProductUpdate(id: number) {
+    console.warn("Update  ----> ", id)
+    // this.product.product_update(id).subscribe((result) => {
+    //   console.warn("Before = ", result)
+    //   if (result) {
+    //     this.ProductDeleteAlert = true
+    //     this.Product_List()
+    //   }
+
+    //   setTimeout(() => this.ProductDeleteAlert = false
+    //     , 7000);
+    // })
+  }
+
 
   Product_List() {
     this.product.productlist().subscribe((result) => {

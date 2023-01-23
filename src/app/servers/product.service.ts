@@ -24,4 +24,8 @@ export class ProductService {
   product_delete(id:number){
     return this.http.delete(`http://127.0.0.1:8000/Productdelete/${id}/`)
   }
+
+  product_update(id:string){
+    return this.http.get<any>(`http://127.0.0.1:8000/Productdelete/${id}/`)
+  }
 }

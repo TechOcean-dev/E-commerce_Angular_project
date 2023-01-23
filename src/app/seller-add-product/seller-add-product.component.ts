@@ -10,7 +10,9 @@ export class SellerAddProductComponent implements OnInit {
   Selleremail: string = ''
   ProductAlert: boolean = false
   Product_category: any
-  
+  PCategory(e:any){
+    console.log(e.target.value)
+  }
   constructor(private product: ProductService) { }
 
   ngOnInit(): void {
@@ -19,6 +21,7 @@ export class SellerAddProductComponent implements OnInit {
       this.Product_category= data
     })
   }
+  
   addProduct(data: any) {
     console.warn(data)
     this.product.addProduct(data).subscribe((result)=>{

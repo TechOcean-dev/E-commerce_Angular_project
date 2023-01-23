@@ -6,7 +6,7 @@
     </div>
     <div class="table-responsive">
         <table class="table align-middle table-striped table-hover" align="center">
-            <thead class="table-dark">
+            <thead class="table-dark" align="center">
                 <tr>
                     <th scope="col">Product id</th>
                     <th scope="col">Img</th>
@@ -17,7 +17,7 @@
                     <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody align="center">
                 <tr *ngFor="let item of Productlist">
                     <th scope="row">{{item.id}}</th>
                     <td><img src='{{item.Product_img}}' alt="Product img" style="max-height: 9vh;max-width:80px ;"></td>
@@ -26,9 +26,8 @@
                     <td>{{item.category}}</td>
                     <td>{{item.Description}}</td>
                     <td class="mx-auto">
-                        <button class="btn btn-danger m-1" (click)="ProductDelete(item.id)">Delete</button>
-                        <button class="btn btn-success m-1">Update</button>
-
+                        <fa-icon class="btn btn-danger" (click)="ProductDelete(item.id)" [icon]="DeleteIcon"></fa-icon>
+                        <fa-icon class="btn btn-success m-1" routerLink="/seller-product-update/{{item.id}}/" [icon]="UpdateIcon"></fa-icon>
                     </td>
 
                 </tr>

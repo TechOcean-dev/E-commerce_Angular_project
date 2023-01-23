@@ -1,24 +1,24 @@
-<h2 class="text-center mt-3" style="color: blueviolet;"><b>Add New Product</b></h2>
+<h2 class="text-center mt-3" style="color: blueviolet;"><b>Update Product Details</b></h2>
 <div class="container">
-    <div *ngIf="ProductAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <!-- <div *ngIf="ProductUpdateAlert" class="alert alert-success alert-dismissible fade show" role="alert">
           New Product is Added Sucessfully.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+      </div> -->
     <div class="row align-items-stretch justify-content-center no-gutters">
       <div class="col-md-7">
         <div class="form h-100 contact-wrap p-5">
           <h3 class="text-center">Enter Product Details</h3>
           <form class="mb-5" method="post" class="mt-3" #Product="ngForm" enctype="multipart/form-data"
-          (ngSubmit)="addProduct(Product.value)">
+          (ngSubmit)="UpdateProduct(Product.value)">
             <div class="row">
               <div class="col-md-6 form-group mb-3">
                 <label for="" class="col-form-label">Product Name *</label>
-                <input type="text" class="form-control"  ngModel name="name" 
+                <input type="text" class="form-control"  ngModel="{{productdata?.name}}" name="name" 
                 id="name" placeholder="Product Name">
               </div>
               <div class="col-md-6 form-group mb-3">
                 <label for="price" class="col-form-label">Price*</label>
-                <input type="number" class="form-control" ngModel 
+                <input type="number" class="form-control" ngModel="{{productdata?.price}}" 
                 name="price" id="price"  placeholder="Product price">
               </div>
             </div>
@@ -30,26 +30,26 @@
               </div>
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-12 form-group mb-3">
                 <label for="Category" class="col-form-label">Product Category</label>
-                <select class="form-select" aria-label="Default select example" (click)="PCategory($event)" name="Category" id="Category">
-                  <option selected [ngValue]="null" >Your Product Category</option>
-                  <option *ngFor="let item of Product_category" [ngValue]="item.id">{{item.category_name}}</option>
+                <select class="form-select" aria-label="Default select example" ngModel name="Category" id="Category">
+                  <option selected value="">Your Product Category</option>
+                  <option *ngFor="let item of Product_category" value="{{item.id}}">{{item.category_name}}</option>
                 </select>
               </div> 
-            </div>
+            </div> -->
             <div class="row mb-5">
               <div class="col-md-12 form-group mb-3">
                 <label for="message" class="col-form-label">Product Details*</label>
                 <textarea class="form-control"  name="detail" id="message" 
-                cols="30" rows="4"  ngModel placeholder="Enter your Product Description"></textarea>
+                cols="30" rows="4"  ngModel="{{productdata?.Description}}" placeholder="Enter your Product Description"></textarea>
               </div>
             </div>
             
             <div class="row justify-content-center">
               <div class="col-md-5 form-group text-center">
-                <input type="submit"  value="Add Product" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                <input type="submit"  value="Update Product" class="btn btn-block btn-primary rounded-0 py-2 px-4">
               </div>
             </div>
           </form>
