@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 })
 export class ProductService {
   isProductAdd = new EventEmitter<boolean>(false)
-
   constructor(private http:HttpClient) { }
 
   addProduct(data:string){
@@ -20,5 +19,9 @@ export class ProductService {
 
   product_category(){
     return this.http.get('http://127.0.0.1:8000/Product_category/')
+  }
+
+  product_delete(id:number){
+    return this.http.delete(`http://127.0.0.1:8000/Productdelete/${id}/`)
   }
 }

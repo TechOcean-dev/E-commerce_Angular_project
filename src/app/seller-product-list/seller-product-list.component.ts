@@ -8,12 +8,31 @@ import { ProductService } from '../servers/product.service';
   styleUrls: ['./seller-product-list.component.css']
 })
 export class SellerProductListComponent implements OnInit {
- Productlist : any
-  constructor(private product:ProductService) { }
+  Productlist: any
+  ProductDeleteAlert = false
+  constructor(private product: ProductService) { }
 
   ngOnInit(): void {
-    this.product.productlist().subscribe((result)=>{
-      this.Productlist= result
+    this.Product_List()
+  }
+
+  ProductDelete(id: number) {
+    console.warn(id)
+    this.product.product_delete(id).subscribe((result) => {
+      console.warn("Before = ", result)
+      if (result) {
+        this.ProductDeleteAlert = true
+        this.Product_List()
+      }
+
+      setTimeout(() => this.ProductDeleteAlert = false
+        , 7000);
+    })
+  }
+
+  Product_List() {
+    this.product.productlist().subscribe((result) => {
+      this.Productlist = result
     })
   }
 

@@ -1,28 +1,39 @@
 <h2 class="text-center mt-3" style="color: blueviolet;"><b>All Product List</b></h2>
 <div class="container">
-<div class="table-responsive">
-    <table class="table align-middle table-striped table-hover" align="center">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">Product id</th>
-                <th scope="col">Img</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Category</th>
-                <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody >
-            <tr *ngFor="let item of Productlist">
-                <th scope="row">{{item.id}}</th>
-                <td><img src='{{item.Product_img}}' alt="Product img" style="max-height: 9vh;max-width:80px ;"></td>
-                <td>{{item.name}}</td>
-                <td>{{item.price}} Rs</td>
-                <td>{{item.category}}</td>
-                <td>{{item.Description}}</td>
+    <div *ngIf="ProductDeleteAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        Product is Deleted Sucessfully.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="table-responsive">
+        <table class="table align-middle table-striped table-hover" align="center">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Product id</th>
+                    <th scope="col">Img</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Productlist">
+                    <th scope="row">{{item.id}}</th>
+                    <td><img src='{{item.Product_img}}' alt="Product img" style="max-height: 9vh;max-width:80px ;"></td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}} Rs</td>
+                    <td>{{item.category}}</td>
+                    <td>{{item.Description}}</td>
+                    <td class="mx-auto">
+                        <button class="btn btn-danger m-1" (click)="ProductDelete(item.id)">Delete</button>
+                        <button class="btn btn-success m-1">Update</button>
 
-            </tr>
-           
-        </tbody>
-    </table>
-</div></div>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
