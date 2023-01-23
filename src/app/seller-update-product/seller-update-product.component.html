@@ -22,23 +22,24 @@
                 name="price" id="price"  placeholder="Product price">
               </div>
             </div>
-
+<!-- 
             <div class="row mb-3">
               <div class="col-md-12 form-group mb-3">
                 <label for="img" class="col-form-label">Product image*</label>
                 <input type="file" class="form-control" ngModel name="img" id="img"  accept="image/*">
               </div>
-            </div>
+            </div> -->
 
-            <!-- <div class="row">
+            <div class="row">
               <div class="col-md-12 form-group mb-3">
                 <label for="Category" class="col-form-label">Product Category</label>
-                <select class="form-select" aria-label="Default select example" ngModel name="Category" id="Category">
-                  <option selected value="">Your Product Category</option>
-                  <option *ngFor="let item of Product_category" value="{{item.id}}">{{item.category_name}}</option>
+                <select class="form-select" aria-label="Default select example" ngModel="{{productdata?.category}}"  
+                  name="category" id="Category">
+                  <option [value]=""  [selected]="">Your Product Category</option>
+                  <option *ngFor="let item of Product_category" [value]="item.id">{{item.category_name}}</option>
                 </select>
               </div> 
-            </div> -->
+            </div>
             <div class="row mb-5">
               <div class="col-md-12 form-group mb-3">
                 <label for="message" class="col-form-label">Product Details*</label>

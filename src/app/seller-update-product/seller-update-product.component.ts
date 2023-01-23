@@ -9,6 +9,7 @@ import { ProductService } from '../servers/product.service';
 })
 export class SellerUpdateProductComponent implements OnInit {
  productdata : any | string| undefined
+ Product_category: any
   constructor(private route : ActivatedRoute, private product: ProductService) { }
 
   ngOnInit(): void {
@@ -17,7 +18,10 @@ export class SellerUpdateProductComponent implements OnInit {
       console.warn(data)
       this.productdata = data
     })
-
+    this.product.product_category().subscribe((data)=>{
+      console.warn(data)
+      this.Product_category= data
+    })
   }
   UpdateProduct(data:any){
     console.warn("Update  ----> ", data)
