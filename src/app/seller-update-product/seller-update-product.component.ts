@@ -10,21 +10,27 @@ import { ProductService } from '../servers/product.service';
 export class SellerUpdateProductComponent implements OnInit {
  productdata : any | string| undefined
  Product_category: any
+ ProductUpdateAlert = false
+ ProductMessage: undefined | string
   constructor(private route : ActivatedRoute, private product: ProductService) { }
 
   ngOnInit(): void {
     let productId = this.route.snapshot.paramMap.get('id')
-    productId && this.product.product_update(productId).subscribe((data)=>{
-      console.warn(data)
+    productId && this.product.get_Specific_product(productId).subscribe((data)=>{
       this.productdata = data
     })
     this.product.product_category().subscribe((data)=>{
-      console.warn(data)
       this.Product_category= data
     })
   }
   UpdateProduct(data:any){
-    console.warn("Update  ----> ", data)
+    if(this.productdata){
+      data.id = this.productdata.id
+    }
+    this.product.updateProduct(data).subscribe((result)=>{
+       this.ProductUpdateAlert= true
+       this.ProductMessage="Product is updated"
+    })
 
   }
 }
