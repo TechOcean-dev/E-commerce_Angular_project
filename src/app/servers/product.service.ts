@@ -33,4 +33,7 @@ export class ProductService {
     return this.http.patch<product>(`http://127.0.0.1:8000/Productdelete/${product.id}/`, product)
 
   }
+  popularProduct(product:product){
+    return this.http.get<product>('http://127.0.0.1:8000/ProductList?_limit=3/')
+  }
 }

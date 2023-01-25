@@ -18,18 +18,17 @@
                 </tr>
             </thead>
             <tbody align="center">
-                <tr *ngFor="let item of Productlist">
-                    <th scope="row">{{item.id}}</th>
-                    <td><img src='{{item.Product_img}}' alt="Product img" style="max-height: 9vh;max-width:80px ;"></td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.price}} Rs</td>
-                    <td>{{item.category}}</td>
-                    <td>{{item.Description}}</td>
-                    <td class="mx-auto">
-                        <fa-icon class="btn btn-danger" (click)="ProductDelete(item.id)" [icon]="DeleteIcon"></fa-icon>
-                        <fa-icon class="btn btn-success m-1" routerLink="/seller-product-update/{{item.id}}/" [icon]="UpdateIcon"></fa-icon>
-                    </td>
-
+                <tr *ngFor="let item of Productlist; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td><img src='{{item.Product_img}}' alt="Product img" style="max-height: 9vh;max-width:80px ;"></td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}} Rs</td>
+                        <td>{{item.category}}</td>
+                        <td>{{item.Description}}</td>
+                        <td class="mx-auto">
+                            <fa-icon class="btn btn-danger" (click)="ProductDelete(item.id)" [icon]="DeleteIcon"></fa-icon>
+                            <fa-icon class="btn btn-success m-1" routerLink="/seller-product-update/{{item.id}}/" [icon]="UpdateIcon"></fa-icon>
+                        </td>
                 </tr>
 
             </tbody>
