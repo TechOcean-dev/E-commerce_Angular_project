@@ -21,9 +21,17 @@
                 </li>
             </ul>
             <form class="d-flex" role="search" *ngSwitchCase="'default'">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Search" 
+                (keyup)="SerachProduct($event)" aria-label="Search" (blur)="hideSearch()">
                 <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+           
+            <ul class="suggested_result navbar-nav" *ngIf="Searchresult">
+                <li *ngFor="let item of Searchresult" class="nav-item">
+                    <a class="nav-link suggested">{{item.name}}</a>
+                </li>
+
+            </ul>
+        </form>
             <div [ngSwitch]="Menutype">
                 <ul *ngSwitchCase="'default'" class="navbar-nav my-lg-0 navbar-nav-scroll nav-right">
                     <li class="nav-item">

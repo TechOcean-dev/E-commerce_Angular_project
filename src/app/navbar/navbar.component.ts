@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { product } from 'src/datatype';
+import { ProductService } from '../servers/product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +11,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   Menutype:string = 'default'
   SellerName:string = ''
-  constructor(private router:Router) { }
+  Searchresult: undefined | product[]
+  constructor(private router:Router , private product:ProductService) { }
 
   ngOnInit(): void {
     this.router.events.subscribe((val: any)=>{
@@ -31,5 +34,20 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('seller'),
     this.router.navigate(['/'])
   }
+  SerachProduct(query: KeyboardEvent){
+    if(query){
+      const element = query.target as HTMLInputElement;
+      this.product.searchProduct(element.value).subscribe((result)=>{
+         console.warn(result)
+         if(result.length>5){
+          result.length= 5;
+         }
+         this.Searchresult = result
+      })
+    }
 
+  }
+  hideSearch(){
+    this.Searchresult= undefined
+  }
 }

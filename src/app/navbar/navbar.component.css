@@ -4,3 +4,31 @@ a{
     color: whitesmoke
 }
 
+.suggested:hover{
+    color: blueviolet;
+    background-color: rgb(232, 226, 226);
+}
+.suggested{
+    cursor: pointer;
+    color: black;
+}
+
+.suggested_result{
+    position: absolute;
+    display: list-item;
+    z-index: 10;
+    background-color: white;
+    width: 220px;
+    top:45px;
+    border: 1px #ddd solid;
+    border-radius: 10px;
+}
+.suggested_result li{
+    border: 1px solid #ddd;
+}
+@media screen and (max-width:991.79px) {
+    .suggested_result{
+        width: 80%;
+        top:29vh
+    }
+}
