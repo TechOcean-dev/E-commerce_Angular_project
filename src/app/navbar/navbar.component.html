@@ -23,11 +23,11 @@
             <form class="d-flex" role="search" *ngSwitchCase="'default'">
                 <input class="form-control me-2" type="search" placeholder="Search" 
                 (keyup)="SerachProduct($event)" aria-label="Search" (blur)="hideSearch()">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" >Search</button>
            
             <ul class="suggested_result navbar-nav" *ngIf="Searchresult">
                 <li *ngFor="let item of Searchresult" class="nav-item">
-                    <a class="nav-link suggested">{{item.name}}</a>
+                    <a class="nav-link suggested" (click)="Search(item.id)">{{item.name}}</a>
                 </li>
 
             </ul>

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { SearchComponent } from './search/search.component';
 import { SellerAddProductComponent } from './seller-add-product/seller-add-product.component';
 import { SellerAuthGuard } from './seller-auth.guard';
 import { SellerAuthComponent } from './seller-auth/seller-auth.component';
@@ -33,9 +35,17 @@ const routes: Routes = [
     canActivate: [SellerAuthGuard]
   },
   {
+    path: 'Product-Detail/:id',
+    component: ProductDetailsComponent
+  },
+  {
     path: 'seller-product-update/:id',
     component : SellerUpdateProductComponent,
     canActivate: [SellerAuthGuard]
+  },
+  {
+    path: "serach_product/:id",
+    component: SearchComponent
   }
 ];
 

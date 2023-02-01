@@ -21,7 +21,6 @@ export class SellerProductListComponent implements OnInit {
 
   ProductDelete(id: number) {
     this.product.product_delete(id).subscribe((result) => {
-      console.warn("Before = ", result)
       if (result) {
         this.ProductDeleteAlert = true
         this.Product_List()

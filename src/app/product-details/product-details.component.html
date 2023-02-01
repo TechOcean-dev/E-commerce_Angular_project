@@ -1,0 +1,119 @@
+<main class="container">
+    <br>
+
+    <!-- product-details-start -->
+    <div class="product-details mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-12">
+                    <div class="product__details-nav d-sm-flex align-items-start align-center">
+                        <div class="product__details-thumb">
+                            <div class="tab-content" id="productThumbContent">
+                                <div aria-labelledby="thumbOne-tab" class="tab-pane fade show active" id="thumbOne"
+                                     role="tabpanel">
+                                    <div class="" style="display: flex;justify-content: center;">
+                                        <img alt="product" class="product_img col-lg-10 col-md-10 col-12"
+                                             src="{{productdata.Product_img}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7 ">
+                    <div class="product-stock mb-15">
+                        <form action="/Checkout/" class="d-block d-sm-none mt-2 mx-auto buy-btn" method="POST">
+                            <!-- {% csrf_token %} -->
+                            <input hidden value="{{productdata.id}}" name="id"/>
+                            <input type="submit" value="Buy now" class="btn btn-danger mt-2" style="margin-left: 5%;width: 90%;" />
+                        </form>
+                    </div>
+                    <div class="product__details-content txt-cen">
+                        <h6 class="mb-10 text-center">{{productdata.name}}</h6>
+                        <hr style="border:1px solid green;">
+                        <div class="price mb-20 mt-10">
+                            <span>Category:  {{productdata.Category}}</span>
+                        </div>
+                        <div class="price mb-20 mt-10">
+                            <span>Price Rs : {{productdata.price}} only/-</span>
+                        </div>
+                        <div class="product-stock mb-15">
+                            <form action="/Checkout/" class="d-none d-sm-block" method="POST">
+                                <!-- {% csrf_token %} -->
+                                <input hidden name="id" value="{{productdata.id}}"/>
+                                <input class="btn btn-danger" style="color:white;" type="submit"
+                                       value="Buy Now">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product-details-end -->
+
+    <!-- product-details-des-start -->
+    <div class="product-details-des mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product__details-des-tab">
+                        <ul class="nav nav-tabs" id="productDesTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button aria-controls="des" aria-selected="true" class="nav-link active" data-bs-target="#des"
+                                        data-bs-toggle="tab" id="des-tab" role="tab" type="button">Description
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button aria-controls="aditional" aria-selected="false" class="nav-link"
+                                        data-bs-target="#aditional" data-bs-toggle="tab" id="aditional-tab" role="tab"
+                                        type="button">Additional information
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button aria-controls="review" aria-selected="false" class="nav-link" data-bs-target="#review"
+                                        data-bs-toggle="tab" hidden id="review-tab" role="tab"
+                                        type="button">Reviews (1)
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="prodductDesTaContent">
+                <div aria-labelledby="des-tab" class="tab-pane fade active show w-100" id="des" role="tabpanel">
+                    <div class="product__details-des-wrapper">
+                        <h6 class="des-text mb-35">
+                           <p>{{productdata.Description}}</p>
+                        </h6>
+                    </div>
+                </div>
+                <div aria-labelledby="aditional-tab" class="tab-pane fade" id="aditional" role="tabpanel">
+                    <div class="product__desc-info">
+                        <ul>
+                            <li>
+                                <h6>Seller</h6>
+                                <span>{{productdata.sellers}}</span>
+                            </li>
+                            <li>
+                                <h6>sellers Number</h6>
+                                <span>{{productdata.sellers.Mobile}}</span>
+                            </li>
+                           
+                            <li>
+                                <h6>Product name</h6>
+                                <span>{{productdata.Book_name}}</span>
+                            </li>
+                            <li>
+                                <h6>Product Category</h6>
+                                <span>{{productdata.Category}}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

@@ -50,4 +50,7 @@ export class NavbarComponent implements OnInit {
   hideSearch(){
     this.Searchresult= undefined
   }
+  Search(product:any){
+    console.warn("Search Product",product.value)
+  }
 }
