@@ -31,9 +31,37 @@
                         <td>{{item.category}}</td>
                         <td>{{item.Description}}</td>
                         <td class="mx-auto">
-                            <fa-icon class="btn btn-danger" (click)="ProductDelete(item.id)" [icon]="DeleteIcon"></fa-icon>
-                            <fa-icon class="btn btn-success m-1" routerLink="/seller-product-update/{{item.id}}/" [icon]="UpdateIcon"></fa-icon>
+                            <fa-icon class="btn btn-danger" (click)="ConfirmDelete(content_delete)"  [icon]="DeleteIcon"></fa-icon>
+                            <fa-icon class="btn btn-success m-1" (click)="ConfirmUpdate(content)" [icon]="UpdateIcon"></fa-icon>
                         </td>
+                        
+                        <ng-template #content let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Are you sure </h4>
+                                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>You want to update this Product details</p>
+                                <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')" routerLink="/seller-product-update/{{item.id}}/">Update</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                            </div>
+                        </ng-template>
+
+                        <ng-template #content_delete let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Are you sure </h4>
+                                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>You want to Delete this Product</p>
+                                <button type="button" class="btn btn-outline-danger" (click)="ProductDelete(item.id)">Confirm Delete</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                            </div>
+                        </ng-template>      
                 </tr>
 
             </tbody>
