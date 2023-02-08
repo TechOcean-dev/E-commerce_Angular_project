@@ -12,8 +12,8 @@
                                 <div aria-labelledby="thumbOne-tab" class="tab-pane fade show active" id="thumbOne"
                                      role="tabpanel">
                                     <div class="" style="display: flex;justify-content: center;">
-                                        <img alt="product" class="product_img col-lg-10 col-md-10 col-12"
-                                             src="{{productdata.Product_img}}">
+                                        <img  class="product_img col-lg-10 col-md-10 col-10"
+                                             src={{img}}>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                         <h6 class="mb-10 text-center">{{productdata.name}}</h6>
                         <hr style="border:1px solid green;">
                         <div class="price mb-20 mt-10">
-                            <span>Category:  {{productdata.Category}}</span>
+                            <span>Category:  {{productdata.category}}</span>
                         </div>
                         <div class="price mb-20 mt-10">
                             <span>Price Rs : {{productdata.price}} only/-</span>

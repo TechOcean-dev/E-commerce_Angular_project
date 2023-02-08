@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   img = './assets/E2.jpg'
   ViewIcon = faEye
   bagIcon = faShoppingBasket
-  Productlist: undefined | product[]
+  Productlist: undefined | product[] | any
   constructor(private product:ProductService) { }
 
   ngOnInit(): void {

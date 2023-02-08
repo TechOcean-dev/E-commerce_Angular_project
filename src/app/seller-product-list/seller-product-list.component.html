@@ -20,7 +20,12 @@
             <tbody align="center">
                 <tr *ngFor="let item of Productlist; let i = index">
                         <th scope="row">{{i+1}}</th>
-                        <td><img src='{{item.Product_img}}' alt="Product img" style="max-height: 9vh;max-width:80px ;"></td>
+                        <td *ngIf="item.Product_img">
+                            <img src='{{item.Product_img}}' alt="Product img" style="max-height: 9vh;max-width:80px ;">
+                        </td>
+                        <td *ngIf="!item.Product_img">
+                            <img src='./assets/E3.png' alt="Product img" style="max-height: 9vh;max-width:80px ;">
+                        </td>
                         <td>{{item.name}}</td>
                         <td>{{item.price}} Rs</td>
                         <td>{{item.category}}</td>

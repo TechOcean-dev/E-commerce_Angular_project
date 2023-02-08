@@ -38,7 +38,12 @@
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     <div class="col" *ngFor="let item of Productlist; let i = index">
       <div class="card h-100" *ngIf="i<8">
-        <img src={{img}} class="card-img-top" alt="...">
+        <div *ngIf="!item.Product_img">
+          <img src={{img}} class="card-img-top" alt="...">
+       </div>
+       <div *ngIf="item.Product_img">
+          <img src={{item.Product_img}} class="card-img-top" alt="...">
+       </div>
         <div class="card-body">
           <h5 class="card-title" style="color: blueviolet;">{{item.name}}</h5>
           <h6><b>Price:</b> <span> {{item.price}} Rs</span></h6>

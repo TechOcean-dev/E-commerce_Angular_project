@@ -8,14 +8,18 @@ import { ProductService } from '../servers/product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  productdata : any | string| undefined
+  productdata : any | string
   Product_category: any
+  img = './assets/E3.png'
   constructor(private route:ActivatedRoute, private product:ProductService) { }
 
   ngOnInit(): void {
     let productId = this.route.snapshot.paramMap.get('id')
     productId && this.product.get_Specific_product(productId).subscribe((data)=>{
       this.productdata = data
+      if (this.productdata.Product_img){
+          this.img = this.productdata.Product_img
+      }
     })
   }
 
