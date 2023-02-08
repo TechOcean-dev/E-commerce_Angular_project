@@ -11,6 +11,7 @@ import { ProductService } from '../servers/product.service';
 export class NavbarComponent implements OnInit {
   Menutype:string = 'default'
   SellerName:string = ''
+  UserName:string = ''
   Searchresult: undefined | product[]
   constructor(private router:Router , private product:ProductService) { }
 
@@ -23,7 +24,15 @@ export class NavbarComponent implements OnInit {
           let sellerdata = sellerstore && JSON.parse(sellerstore)[0]
           this.SellerName = sellerdata.name
 
-        }else{
+        } else 
+           if(localStorage.getItem('user') && val.url.includes('user')){
+          this.Menutype = 'user'
+          let userstore = localStorage.getItem('user')
+          let userdata = userstore && JSON.parse(userstore)[1]
+          this.UserName = userdata.name
+
+        }
+        else{
           this.Menutype = 'default'
         }
       }
