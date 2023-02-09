@@ -28,7 +28,6 @@ export class SellerAddProductComponent implements OnInit {
 
 
   addProduct(data: any) {
-    console.warn(data)
     this.product.addProduct(data).subscribe((result)=>{
       if(result){
         this.ProductAlert = true
