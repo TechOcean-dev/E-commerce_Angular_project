@@ -15,13 +15,19 @@ export class UserAuthComponent implements OnInit {
   constructor(private router:Router, private user:UserService) { }
 
   ngOnInit(): void {
+    this.user.reloadUser()
   }
   UserSignup(data:SellerSignup):void{
     this.user.UserSignup(data)
   }
   User_Login(data:any):void{
-    console.warn(data)
-
+    this.user.Userlogin(data)
+    this.user.isLoggedInFail.subscribe((isError)=>{
+      if(isError){
+        this.LoginAlert = true
+      }
+    })
+    
   }
   UserLoginForm(){
      this.showRegisterForm= false

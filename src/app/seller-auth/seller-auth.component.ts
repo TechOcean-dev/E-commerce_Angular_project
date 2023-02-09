@@ -16,6 +16,7 @@ export class SellerAuthComponent implements OnInit {
   LoginAlert = false
   ngOnInit(): void {
      this.seller.reloadSeller()
+     
   }
   SellerSignup(data:SellerSignup):void{
     this.seller.SellerSignup(data)

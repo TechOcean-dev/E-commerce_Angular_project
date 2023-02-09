@@ -13,7 +13,13 @@
                     <a class="nav-link" routerLink="seller-auth" *ngSwitchCase="'seller'">Dashboard</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" *ngSwitchCase="'default'" routerLink="#">All Products</a>
+                    <a class="nav-link" aria-current="page" *ngSwitchCase="'user'" routerLink="#">All Products</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" routerLink="/seller-auth/" *ngSwitchCase="'default'">Seller</a>
+                    <a class="nav-link" routerLink="#" *ngSwitchCase="'user'">My Orders</a>
+
                     <a class="nav-link" aria-current="page" routerLink="seller-add-product" *ngSwitchCase="'seller'">Add Product</a>
                 </li>
                 <li class="nav-item">
@@ -45,10 +51,10 @@
                 </ul>
                 <ul *ngSwitchCase="'user'" class="navbar-nav my-lg-0 navbar-nav-scroll nav-right">
                     <li class="nav-item">
-                        <a class="nav-link" style="cursor: pointer;" (click)="logout()">Logout</a>
+                        <a class="nav-link" style="cursor: pointer;" (click)="User_logout()">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <h2 class="nav-link mt-1" style="color: blueviolet;">er{{UserName| titlecase}}</h2>
+                        <h2 class="nav-link mt-1" style="color: blueviolet;">{{UserName| titlecase}}</h2>
                     </li>
                 </ul>
                 <ul *ngSwitchCase="'seller'" class="navbar-nav my-lg-0 navbar-nav-scroll nav-right">

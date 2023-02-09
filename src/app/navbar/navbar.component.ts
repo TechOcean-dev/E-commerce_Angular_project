@@ -11,7 +11,7 @@ import { ProductService } from '../servers/product.service';
 export class NavbarComponent implements OnInit {
   Menutype:string = 'default'
   SellerName:string = ''
-  UserName:string = ''
+  UserName:string | any
   Searchresult: undefined | product[]
   constructor(private router:Router , private product:ProductService) { }
 
@@ -25,12 +25,12 @@ export class NavbarComponent implements OnInit {
           this.SellerName = sellerdata.name
 
         } else 
-           if(localStorage.getItem('user') && val.url.includes('user')){
-          this.Menutype = 'user'
+           if(localStorage.getItem('user')){
+            this.Menutype = 'user'
           let userstore = localStorage.getItem('user')
-          let userdata = userstore && JSON.parse(userstore)[1]
-          this.UserName = userdata.name
-
+          let userdata = userstore && JSON.parse(userstore)[0]
+          this.UserName = userdata.value
+          
         }
         else{
           this.Menutype = 'default'
@@ -42,6 +42,10 @@ export class NavbarComponent implements OnInit {
   logout(){
     localStorage.removeItem('seller'),
     this.router.navigate(['/'])
+  }
+  User_logout(){
+    localStorage.removeItem('user'),
+    this.router.navigate(['/user-auth'])
   }
   SerachProduct(query: KeyboardEvent){
     if(query){
