@@ -2,3 +2,11 @@
 body{
     font-family: sans-serif;
 }
+.error_msg{
+    color: red;
+    text-align: center;
+    font-size: 15px;
+}
+input:disabled{
+    cursor: not-allowed !important
+}
