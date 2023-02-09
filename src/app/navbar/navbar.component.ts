@@ -26,11 +26,11 @@ export class NavbarComponent implements OnInit {
 
         } else 
            if(localStorage.getItem('user')){
+            
+            let userstore = localStorage.getItem('user')
+            let userdata = userstore && JSON.parse(userstore)
+            this.UserName = userdata.name
             this.Menutype = 'user'
-          let userstore = localStorage.getItem('user')
-          let userdata = userstore && JSON.parse(userstore)[0]
-          this.UserName = userdata.value
-          
         }
         else{
           this.Menutype = 'default'

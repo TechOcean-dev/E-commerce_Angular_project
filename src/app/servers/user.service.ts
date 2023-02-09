@@ -25,6 +25,7 @@ export class UserService {
       this.router.navigate(['/'])
     }
   }
+  
   Userlogin(data:Seller_Login){
      this.http.post('http://127.0.0.1:8000/User_Login/', data, {observe: 'response'}).subscribe((resulth: any)=>{
         console.warn("User Service inner", resulth.body)
