@@ -1,0 +1,33 @@
+<div class="container mb-5 mt-5">
+    <h2 class="mb-3">All Products</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <div class="col" *ngFor="let item of Productlist; let i = index">
+        <div class="card h-100">
+          <div *ngIf="!item.Product_img">
+            <img src={{img}} class="card-img-top" alt="...">
+         </div>
+         <div *ngIf="item.Product_img">
+            <img src={{item.Product_img}} class="card-img-top" alt="...">
+         </div>
+          <div class="card-body">
+            <h5 class="card-title" style="color: blueviolet;">{{item.name}}</h5>
+            <h6><b>Price:</b> <span> {{item.price}} Rs</span></h6>
+            <h6><b>category:</b> <span> {{item.category}}</span></h6>
+            <div class="font: bold"><b>Description:</b></div>
+            <p class="card-text" style="margin-left: 10px;">{{item.Description}}
+              This content is a little bit longer.</p>
+          </div>
+          <div class="card-footer  col-12">
+            <button class="btn btn-outline-success  w-100" routerLink="/Product-Detail/{{item.id}}/">
+              <fa-icon [icon]="ViewIcon" style="margin-right: 5px;"></fa-icon>
+              View Details
+            </button>
+            <button class="btn btn-outline-danger w-100 mt-2">
+              <fa-icon [icon]="bagIcon" style="margin-right: 12px;"></fa-icon>
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

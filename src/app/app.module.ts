@@ -18,6 +18,7 @@ import { SearchComponent } from './search/search.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { FooterComponent } from './footer/footer.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
     SearchComponent,
     ProductDetailsComponent,
     UserAuthComponent,
-    FooterComponent
+    FooterComponent,
+    AllProductsComponent
   ],
   imports: [
     BrowserModule,
